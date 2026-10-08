@@ -1,0 +1,13 @@
+{
+  "MF": {
+    "row_lr": 0.01,
+    "row_steps": 300,
+    "drug_lrs": [
+      0.01
+    ]
+  },
+  "selection_steps": [
+    0,
+    25
+  ]
+}

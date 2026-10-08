@@ -1,0 +1,17 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+*.log
+.env
+.venv*/
+.DS_Store
+output*/
+results/
+figures/
+raw/
+inputs/
+labels/
+*.npz
+*.npy
+*.csv
+*.csv.gz

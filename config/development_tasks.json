@@ -1,0 +1,264 @@
+{
+  "dev_drugs": [
+    "ceftazidime",
+    "clindamycin",
+    "gentamicin"
+  ],
+  "rows": [
+    {
+      "species": "ecoli",
+      "target": "ampicillin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "ampicillin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "ampicillin/sulbactam",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "ampicillin/sulbactam",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "cefazolin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "cefazolin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "cefepime",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "cefepime",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "ceftriaxone",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "ceftriaxone",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "ciprofloxacin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "ciprofloxacin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "nitrofurantoin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "nitrofurantoin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "tobramycin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "tobramycin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "ecoli",
+      "target": "trimethoprim/sulfamethoxazole",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "ecoli",
+      "target": "trimethoprim/sulfamethoxazole",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ampicillin/sulbactam",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ampicillin/sulbactam",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "cefazolin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "cefazolin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "cefepime",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "cefepime",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ceftriaxone",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ceftriaxone",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ciprofloxacin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "ciprofloxacin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "tobramycin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "tobramycin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "trimethoprim/sulfamethoxazole",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "kpneumoniae",
+      "target": "trimethoprim/sulfamethoxazole",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "cefepime",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "cefepime",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "ciprofloxacin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "ciprofloxacin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "meropenem",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "meropenem",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "piperacillin/tazobactam",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "tobramycin",
+      "development_drug": "ceftazidime"
+    },
+    {
+      "species": "paeruginosa",
+      "target": "tobramycin",
+      "development_drug": "gentamicin"
+    },
+    {
+      "species": "saureus",
+      "target": "erythromycin",
+      "development_drug": "clindamycin"
+    },
+    {
+      "species": "saureus",
+      "target": "levofloxacin",
+      "development_drug": "clindamycin"
+    },
+    {
+      "species": "saureus",
+      "target": "oxacillin",
+      "development_drug": "clindamycin"
+    },
+    {
+      "species": "saureus",
+      "target": "tetracycline",
+      "development_drug": "clindamycin"
+    },
+    {
+      "species": "saureus",
+      "target": "trimethoprim/sulfamethoxazole",
+      "development_drug": "clindamycin"
+    }
+  ]
+}

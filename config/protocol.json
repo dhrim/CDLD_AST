@@ -1,0 +1,88 @@
+{
+  "settings": [
+    {
+      "id": "CDLD",
+      "arm": "Predictor_BCE",
+      "finder_lr": 3e-05,
+      "cycle": 22,
+      "epoch": 55,
+      "finder_l2": 0.0001,
+      "finder_dropout_multiplier": 1.0,
+      "predictor_l2": 0.0
+    }
+  ],
+  "training": {
+    "development_drugs": [
+      "ceftazidime",
+      "gentamicin",
+      "clindamycin"
+    ],
+    "latent_size": 128,
+    "finder_subepochs": 30,
+    "predictor_lr": 0.0005,
+    "predictor_bn_momentum": 0.9,
+    "batch_size": 1024,
+    "row_steps": 300,
+    "row_lr": 0.0005,
+    "repeats": 10,
+    "finder_cycles": [
+      22
+    ],
+    "predictor_epochs": [
+      55
+    ],
+    "finder_lr": 3e-05,
+    "support_budgets": [
+      0,
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "adapt_lrs": [
+      0.002
+    ],
+    "adapt_steps": [
+      0,
+      200,
+      400
+    ]
+  },
+  "contexts": [
+    "ecoli__ampicillin",
+    "ecoli__ampicillin_sulbactam",
+    "ecoli__cefazolin",
+    "ecoli__cefepime",
+    "ecoli__ceftriaxone",
+    "ecoli__ciprofloxacin",
+    "ecoli__nitrofurantoin",
+    "ecoli__piperacillin_tazobactam",
+    "ecoli__tobramycin",
+    "ecoli__trimethoprim_sulfamethoxazole",
+    "kpneumoniae__ampicillin_sulbactam",
+    "kpneumoniae__cefazolin",
+    "kpneumoniae__cefepime",
+    "kpneumoniae__ceftriaxone",
+    "kpneumoniae__ciprofloxacin",
+    "kpneumoniae__piperacillin_tazobactam",
+    "kpneumoniae__tobramycin",
+    "kpneumoniae__trimethoprim_sulfamethoxazole",
+    "paeruginosa__cefepime",
+    "paeruginosa__ciprofloxacin",
+    "paeruginosa__meropenem",
+    "paeruginosa__piperacillin_tazobactam",
+    "paeruginosa__tobramycin",
+    "saureus__erythromycin",
+    "saureus__levofloxacin",
+    "saureus__oxacillin",
+    "saureus__tetracycline",
+    "saureus__trimethoprim_sulfamethoxazole"
+  ],
+  "seeds": [
+    965136,
+    110623,
+    615357
+  ],
+  "maximum_workers": 1
+}

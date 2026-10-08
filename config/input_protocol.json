@@ -1,0 +1,18 @@
+{
+  "development_drugs": [
+    "ceftazidime",
+    "gentamicin",
+    "clindamycin"
+  ],
+  "seed": [
+    42,
+    43
+  ],
+  "repeats": 10,
+  "support_budgets": [
+    10,
+    25,
+    50,
+    100
+  ]
+}

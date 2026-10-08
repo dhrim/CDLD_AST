@@ -1,0 +1,88 @@
+{
+  "LR": {
+    "10": {
+      "C": 1,
+      "method": "LR"
+    },
+    "20": {
+      "C": 1,
+      "method": "LR"
+    },
+    "30": {
+      "C": 1,
+      "method": "LR"
+    },
+    "40": {
+      "C": 1,
+      "method": "LR"
+    },
+    "50": {
+      "C": 1,
+      "method": "LR"
+    }
+  },
+  "RF": {
+    "10": {
+      "depth": 2,
+      "leaf": 1,
+      "method": "RF"
+    },
+    "20": {
+      "depth": 4,
+      "leaf": 1,
+      "method": "RF"
+    },
+    "30": {
+      "depth": 4,
+      "leaf": 1,
+      "method": "RF"
+    },
+    "40": {
+      "depth": 4,
+      "leaf": 1,
+      "method": "RF"
+    },
+    "50": {
+      "depth": 4,
+      "leaf": 1,
+      "method": "RF"
+    }
+  },
+  "XGB": {
+    "10": {
+      "depth": 1,
+      "lam": 1,
+      "lr": 0.1,
+      "method": "XGB",
+      "round": 25
+    },
+    "20": {
+      "depth": 2,
+      "lam": 1,
+      "lr": 0.03,
+      "method": "XGB",
+      "round": 100
+    },
+    "30": {
+      "depth": 1,
+      "lam": 1,
+      "lr": 0.1,
+      "method": "XGB",
+      "round": 100
+    },
+    "40": {
+      "depth": 1,
+      "lam": 1,
+      "lr": 0.1,
+      "method": "XGB",
+      "round": 100
+    },
+    "50": {
+      "depth": 1,
+      "lam": 1,
+      "lr": 0.1,
+      "method": "XGB",
+      "round": 100
+    }
+  }
+}
