@@ -4,14 +4,7 @@
 
 Reproduce the evaluation of antibiotics excluded from pretraining using four observed AST results per episode. The compared methods are CDLD, matrix factorization, L2 logistic regression, random forest, XGBoost, support frequency and the mean of the four observed AST values.
 
-사례당 기존약 AST 네 개를 이용하여 사전학습에서 제외한 목표약을 적응·평가합니다. 고정 설정으로 최종 결과를 재현하는 코드입니다.
-
-## Presentation / 발표자료
-
-항생제 감수성 검사는 배양된 균이 특정 항생제에 감수성을 보이는지 확인하는 검사입니다. 이 연구는 기존 항생제 네 개의 검사 결과와 목표 항생제의 소수 관측을 이용해, 사전학습에 없던 목표 항생제의 감수성을 예측합니다.
-
-- [한국어 발표자료 — PDF](presentation/CDLD_AST_presentation_ko.pdf)
-- [한국어 발표자료 — PowerPoint](presentation/CDLD_AST_presentation_ko.pptx)
+항생제 감수성 검사(AST)는 배양된 균의 항생제 감수성을 확인하는 검사입니다. 한 검사 사례(episode)는 한 환자의 검체에서 특정 균이 분리된 배양 검사 단위이며, 같은 환자에게 여러 사례가 있을 수 있습니다. 각 사례의 기존 항생제 검사 결과 네 개와 목표 항생제의 소수 관측을 이용해, 사전학습에 없던 목표 항생제의 감수성을 예측합니다.
 
 ## Environment / 실행 환경
 
