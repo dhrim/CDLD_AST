@@ -1,4 +1,4 @@
-# CDLD AST reproduction
+# CDLD AST
 
 ![Graphical abstract](assets/graphical_abstract.png)
 
