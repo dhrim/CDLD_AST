@@ -6,6 +6,20 @@ Reproduce the evaluation of antibiotics excluded from pretraining using four obs
 
 항생제 감수성 검사(AST)는 배양된 균의 항생제 감수성을 확인하는 검사입니다. 한 검사 사례(episode)는 한 환자의 검체에서 특정 균이 분리된 배양 검사 단위이며, 같은 환자에게 여러 사례가 있을 수 있습니다. 각 사례의 기존 항생제 검사 결과 네 개와 목표 항생제의 소수 관측을 이용해, 사전학습에 없던 목표 항생제의 감수성을 예측합니다.
 
+## Reproduction version / 재현 코드 버전
+
+Use the **`main-reproduction-v1`** tag for the main four-AST evaluation described here:
+
+```sh
+git clone https://github.com/dhrim/CDLD_AST.git
+cd CDLD_AST
+git checkout main-reproduction-v1
+```
+
+This release contains the raw-data input construction and the fixed-setting main evaluation. The review-stage bootstrap and alternative-input analyses are maintained separately and will receive their own reproducible version.
+
+이 태그는 원자료 입력 생성과 기존약 네 개 조건의 본 실험을 재현하는 코드판입니다. 심사자가 실행하는 데 필요한 코드·설정·설명만 포함합니다.
+
 ## Environment / 실행 환경
 
 Use Linux CPU with Python 3.11. Install the exact package versions in `requirements.txt`:
@@ -39,6 +53,35 @@ Set `CDLD_RAW_DIR` to that directory. The default is `~/Downloads`. MIMIC `patie
 `CDLD_OUTPUT_DIR` sets the output directory, which must be outside this code folder. The default is `~/CDLD_AST_outputs`. Use the same output directory for both notebooks. Intermediate source modules, patient-derived inputs, models, predictions, progress files, evaluation metrics are generated there.
 
 `CDLD_OUTPUT_DIR`를 두 노트북에서 동일하게 사용합니다. 생성물은 코드 폴더 밖에 저장합니다. 원자료·환자별 파생자료·실행 로그·저장 성능 수치·그림·노트북 출력은 배포본에 포함하지 않습니다. 노트북 실행 결과에서 환자별 자료가 포함될 수 있으므로 생성된 출력 폴더를 공개 저장소에 추가하지 마십시오.
+
+## Outputs and completion / 결과와 완료 확인
+
+Run every cell in `01_inputs.ipynb` from top to bottom, then every cell in `02_models.ipynb`. Keep `CDLD_RAW_DIR` and `CDLD_OUTPUT_DIR` consistent throughout. For example, set these before starting the notebook session:
+
+```sh
+export CDLD_RAW_DIR=/path/to/source_files
+export CDLD_OUTPUT_DIR=/path/to/CDLD_AST_outputs
+export CDLD_WORKERS=4
+```
+
+Choose the worker count for the available CPU and memory; one worker is the default. The notebooks generate the following files under `$CDLD_OUTPUT_DIR/run/`:
+
+| File | Contents |
+|---|---|
+| `status.json` | Progress; successful completion has `stage: "complete"` and `complete: 420` |
+| `results/support_summary.json` | Method-level metrics for each dataset and support size |
+| `results/combination_support.json` | Metrics for each organism–antibiotic combination and support size |
+| `results/all_conditions.json` | Metrics for individual seed/repeat conditions |
+| `results/ast_summary.json` | AST-mean baseline metrics |
+| `results/ast_combination.json` | Combination-level AST-mean metrics |
+| `results/metric_counts.json`, `results/ast_metric_counts.json` | Number of defined combinations for each metric |
+| `results/completion.json` | Scoring completion record |
+
+The 420 jobs consist of 168 training jobs and 252 evaluation jobs. The reported method comparisons use `support_summary.json` and `ast_summary.json`; support 50 gives the main comparison, and the support-size rows give the corresponding curves. `combination_support.json` retains the underlying combination-level results.
+
+After an interrupted session, rerun `02_models.ipynb` with the same output directory and settings. Completed jobs are skipped. If a worker failed, inspect its file in `failures/` and the corresponding `logs/` file before restarting; preserved failure records stop execution until the cause is resolved. Use a new output directory for a different configuration.
+
+두 노트북을 위에서 아래로 실행합니다. 결과 요약은 `run/results/`에 생성되며, 원자료와 결과 경로는 코드 폴더 밖에 둡니다. 중단 후 동일 설정으로 다시 실행하면 완료한 작업을 건너뜁니다.
 
 ## Evaluation rules / 평가 규칙
 
