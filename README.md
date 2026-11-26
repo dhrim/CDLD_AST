@@ -8,17 +8,17 @@ Reproduce the evaluation of antibiotics excluded from pretraining using four obs
 
 ## Reproduction version / 재현 코드 버전
 
-Use the **`main-reproduction-v1`** tag for the main four-AST evaluation described here:
+Use the **`review-reproduction-v1`** tag for the main evaluation and additional analyses:
 
 ```sh
 git clone https://github.com/dhrim/CDLD_AST.git
 cd CDLD_AST
-git checkout main-reproduction-v1
+git checkout review-reproduction-v1
 ```
 
-This release contains the raw-data input construction and the fixed-setting main evaluation. The review-stage bootstrap and alternative-input analyses are maintained separately and will receive their own reproducible version.
+This release includes raw-data input construction, the fixed-setting main evaluation, patient-cluster bootstrap, sparse-outcome and threshold analyses, and alternative-input evaluations. The earlier `main-reproduction-v1` tag remains available for the main evaluation alone.
 
-이 태그는 원자료 입력 생성과 기존약 네 개 조건의 본 실험을 재현하는 코드판입니다. 심사자가 실행하는 데 필요한 코드·설정·설명만 포함합니다.
+이 태그는 본 실험과 추가 통계·입력 조건 분석을 함께 재현하는 코드판입니다. 심사자가 실행하는 데 필요한 코드·설정·설명만 포함합니다.
 
 ## Environment / 실행 환경
 
@@ -28,9 +28,9 @@ Use Linux CPU with Python 3.11. Install the exact package versions in `requireme
 python -m pip install -r requirements.txt
 ```
 
-Both notebooks must use this directory as their working directory. `config/` contains the selected model settings, evaluation combinations, seeds and adaptation budgets.
+All three notebooks must use this directory as their working directory. `config/` contains the selected model settings, evaluation combinations, seeds and adaptation budgets.
 
-두 노트북의 작업 디렉터리를 이 폴더로 설정합니다. `config/`에는 재현에 필요한 고정 설정만 포함합니다.
+세 노트북의 작업 디렉터리를 이 폴더로 설정합니다. `config/`에는 재현에 필요한 고정 설정만 포함합니다.
 
 ## Data / 원자료
 
@@ -48,15 +48,17 @@ Set `CDLD_RAW_DIR` to that directory. The default is `~/Downloads`. MIMIC `patie
 1. `01_inputs.ipynb`: build cohorts, patient splits, target-drug exclusions, four-AST arrays, nested supports, classifier features and separate query labels.
 2. `02_models.ipynb`: train and evaluate the selected methods. Set `CDLD_WORKERS` for CPU parallelism; the default is one worker. Each worker uses one compute thread and requires its own memory.
 
+3. `03_review.ipynb`: compute additional metrics and uncertainty, generate alternative AST inputs, and evaluate CDLD/MF with the pretrained models from step 2.
+
 원자료 → 입력 → 모델 학습·적응 → 성능 평가 순서로 실행합니다. 학습 seed는 965136·110623·615357이며, 각 조합에서 support 0·10·20·30·40·50과 열 번의 중첩 반복을 사용합니다. Support 0은 목표약 latent 업데이트가 없는 조건입니다.
 
-`CDLD_OUTPUT_DIR` sets the output directory, which must be outside this code folder. The default is `~/CDLD_AST_outputs`. Use the same output directory for both notebooks. Intermediate source modules, patient-derived inputs, models, predictions, progress files, evaluation metrics are generated there.
+`CDLD_OUTPUT_DIR` sets the output directory, which must be outside this code folder. The default is `~/CDLD_AST_outputs`. Use the same output directory for all three notebooks. Intermediate source modules, patient-derived inputs, models, predictions, progress files, evaluation metrics are generated there.
 
-`CDLD_OUTPUT_DIR`를 두 노트북에서 동일하게 사용합니다. 생성물은 코드 폴더 밖에 저장합니다. 원자료·환자별 파생자료·실행 로그·저장 성능 수치·그림·노트북 출력은 배포본에 포함하지 않습니다. 노트북 실행 결과에서 환자별 자료가 포함될 수 있으므로 생성된 출력 폴더를 공개 저장소에 추가하지 마십시오.
+`CDLD_OUTPUT_DIR`를 세 노트북에서 동일하게 사용합니다. 생성물은 코드 폴더 밖에 저장합니다. 원자료·환자별 파생자료·실행 로그·저장 성능 수치·그림·노트북 출력은 배포본에 포함하지 않습니다. 노트북 실행 결과에서 환자별 자료가 포함될 수 있으므로 생성된 출력 폴더를 공개 저장소에 추가하지 마십시오.
 
 ## Outputs and completion / 결과와 완료 확인
 
-Run every cell in `01_inputs.ipynb` from top to bottom, then every cell in `02_models.ipynb`. Keep `CDLD_RAW_DIR` and `CDLD_OUTPUT_DIR` consistent throughout. For example, set these before starting the notebook session:
+Run every cell in `01_inputs.ipynb` from top to bottom, then every cell in `02_models.ipynb`, followed by `03_review.ipynb`. Keep `CDLD_RAW_DIR` and `CDLD_OUTPUT_DIR` consistent throughout. For example, set these before starting the notebook session:
 
 ```sh
 export CDLD_RAW_DIR=/path/to/source_files
@@ -81,7 +83,7 @@ The 420 jobs consist of 168 training jobs and 252 evaluation jobs. The reported 
 
 After an interrupted session, rerun `02_models.ipynb` with the same output directory and settings. Completed jobs are skipped. If a worker failed, inspect its file in `failures/` and the corresponding `logs/` file before restarting; preserved failure records stop execution until the cause is resolved. Use a new output directory for a different configuration.
 
-두 노트북을 위에서 아래로 실행합니다. 결과 요약은 `run/results/`에 생성되며, 원자료와 결과 경로는 코드 폴더 밖에 둡니다. 중단 후 동일 설정으로 다시 실행하면 완료한 작업을 건너뜁니다.
+세 노트북을 위에서 아래로 실행합니다. 결과 요약은 `run/results/`에 생성되며, 원자료와 결과 경로는 코드 폴더 밖에 둡니다. 중단 후 동일 설정으로 다시 실행하면 완료한 작업을 건너뜁니다.
 
 ## Evaluation rules / 평가 규칙
 
@@ -92,3 +94,24 @@ MIMIC target supports determine the target latent or classifier. External eICU t
 The trainable target-drug latent and the fixed case latents are distinct. eICU case latents use the locally observed existing-drug AST, while the target latent is inherited from MIMIC support adaptation.
 
 The AST mean is evaluated once per combination, without support or seed replication. Reported metrics are AUROC, accuracy, susceptibility sensitivity, susceptibility F1 and specificity (I/R recall). Scores of exactly 0.5 are classified as susceptible. AUROC and specificity are undefined for all-susceptible query combinations; undefined values are excluded from the corresponding means. `ast_combination.json`, `ast_summary.json` and metric-count outputs are generated alongside model metrics.
+
+## Additional-analysis outputs / 추가 분석 결과
+
+`03_review.ipynb` uses the same Python environment and `CDLD_OUTPUT_DIR`. It reuses the main pretrained models; it does not repeat pretraining. Alternative-input adaptation runs all six support budgets in the original order, preserving the random-number sequence; the comparisons report support 10 and 50. The 504 additional jobs cover two methods × three input conditions × 28 combinations × three seeds, with MIMIC adaptation followed by eICU inference in each job. Completed jobs are skipped on restart. A failed job raises an error and its diagnostic output remains in the external output directory.
+
+추가 분석은 기존 사전학습 모델을 재사용합니다. 전체 기존약 입력, 동일 사례의 네 기존약 대조, 목표약과 동일 계열을 제외한 네 기존약 입력을 비교합니다. 마지막 두 조건은 support와 query 사례를 공유합니다. 중단 후 같은 설정으로 노트북을 다시 실행할 수 있습니다.
+
+All numeric outputs below are generated under `$CDLD_OUTPUT_DIR/review/`:
+
+| Output | Analysis |
+|---|---|
+| `sensitivity_summary.json`, `combination_metrics.json`, `coverage.json` | Balanced accuracy, nonsusceptibility F1 and false-susceptible rate; minimum nonsusceptible counts of 0, 2 and 5 |
+| `intervals.json`, `paired_differences.json` | Aggregate and paired patient-cluster bootstrap results, including valid-resample counts |
+| `combination_intervals.json` | Combination-level confidence intervals and unavailable intervals |
+| `threshold_by_combination.json`, `threshold_summary.json`, `threshold_common_combinations.json` | Fixed threshold grid; the last file uses the same two-class combinations for both detection rates |
+| `all_condition_metrics.json`, `all_combination_metrics.json`, `all_summary.json` | Main four-AST, all-available AST and matched same-class-exclusion comparisons |
+| `adaptation_complete.json` | Completion of the 504 additional adaptation/evaluation jobs |
+
+`config/review_statistics.json` specifies 2,000 resamples, the seed, fixed combination sets, interval validity and the threshold grid. `config/drug_families.json` defines the drug-family exclusion. The bootstrap resamples query patients while holding trained models and support samples fixed. A common patient weight is used across methods, supports and combinations. Undefined metrics remain undefined; an aggregate interval requires at least 95% valid resamples over its fixed combination set. Threshold curves describe the saved predictions and do not select a query-optimal deployment threshold.
+
+공개 저장소에는 재현 코드와 고정 설정만 두며, 위 계산으로 생성되는 환자별 자료·예측·수치 결과는 포함하지 않습니다.

@@ -1,0 +1,108 @@
+{
+  "source": "WHO Collaborating Centre ATC/DDD Index, pages updated 2026-01-20, accessed 2026-10-02",
+  "families": {
+    "penicillins": [
+      "ampicillin",
+      "ampicillin/sulbactam",
+      "oxacillin",
+      "penicillin g",
+      "piperacillin",
+      "piperacillin/tazobactam"
+    ],
+    "cephalosporins": [
+      "cefazolin",
+      "cefuroxime",
+      "ceftazidime",
+      "ceftriaxone",
+      "cefepime"
+    ],
+    "carbapenems": [
+      "ertapenem",
+      "meropenem"
+    ],
+    "monobactams": [
+      "aztreonam"
+    ],
+    "aminoglycosides": [
+      "amikacin",
+      "gentamicin",
+      "tobramycin"
+    ],
+    "fluoroquinolones": [
+      "ciprofloxacin",
+      "levofloxacin"
+    ],
+    "tetracyclines": [
+      "tetracycline",
+      "tigecycline"
+    ],
+    "macrolides": [
+      "erythromycin"
+    ],
+    "lincosamides": [
+      "clindamycin"
+    ],
+    "glycopeptides": [
+      "vancomycin"
+    ],
+    "nitrofurans": [
+      "nitrofurantoin"
+    ],
+    "trimethoprim_sulfonamide_combinations": [
+      "trimethoprim/sulfamethoxazole"
+    ],
+    "linezolid_singleton": [
+      "linezolid"
+    ],
+    "rifampin_singleton": [
+      "rifampin"
+    ]
+  },
+  "sources": {
+    "penicillins": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01C&showdescription=no"
+    ],
+    "cephalosporins": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DB&showdescription=no",
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DC&showdescription=no",
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DD&showdescription=no",
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DE&showdescription=no"
+    ],
+    "carbapenems": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DH&showdescription=no"
+    ],
+    "monobactams": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01DF&showdescription=no"
+    ],
+    "aminoglycosides": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01GB&showdescription=no"
+    ],
+    "fluoroquinolones": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01MA&showdescription=no"
+    ],
+    "tetracyclines": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01AA&showdescription=no"
+    ],
+    "macrolides": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01FA&showdescription=no"
+    ],
+    "lincosamides": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01FF&showdescription=no"
+    ],
+    "glycopeptides": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01XA&showdescription=no"
+    ],
+    "nitrofurans": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01XE&showdescription=no"
+    ],
+    "trimethoprim_sulfonamide_combinations": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01EE&showdescription=no"
+    ],
+    "linezolid_singleton": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J01XX08&showdescription=no"
+    ],
+    "rifampin_singleton": [
+      "https://atcddd.fhi.no/atc_ddd_index/?code=J04AB02&showdescription=no"
+    ]
+  }
+}
