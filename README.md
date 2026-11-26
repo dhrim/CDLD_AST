@@ -8,12 +8,12 @@ Reproduce the evaluation of antibiotics excluded from pretraining using four obs
 
 ## Reproduction version / 재현 코드 버전
 
-Use the **`review-reproduction-v1`** tag for the main evaluation and additional analyses:
+Use the **`review-reproduction-v1.1`** tag for the main evaluation and additional analyses:
 
 ```sh
 git clone https://github.com/dhrim/CDLD_AST.git
 cd CDLD_AST
-git checkout review-reproduction-v1
+git checkout review-reproduction-v1.1
 ```
 
 This release includes raw-data input construction, the fixed-setting main evaluation, patient-cluster bootstrap, sparse-outcome and threshold analyses, and alternative-input evaluations. The earlier `main-reproduction-v1` tag remains available for the main evaluation alone.
